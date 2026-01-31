@@ -3,10 +3,11 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: import.meta.env.REACT_APP_API_URL,
-  withCredentials: true, // backend base URL
+  withCredentials: true,// backend base URL
   headers: {
     "Content-Type": "application/json",
   },
+  
 });
 
 /**
