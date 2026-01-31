@@ -34,18 +34,25 @@ const generatePDF = (invoice) => {
   return new Promise((resolve, reject) => {
     try {
       const doc = new PDFDocument({ margin: 50 });
-      const dirPath = "uploads/invoices";
+      // const dirPath = "uploads/invoices";
+      const __dirname = new URL('.', import.meta.url).pathname;
+
+      const dirPath = path.join(__dirname, "..", "..", "uploads", "invoices");
+
 
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath, { recursive: true });
       }
 
-      const filePath = path.join(
-        dirPath,
-        `invoice_${invoice._id}.pdf`
-      );
+      // const filePath = path.join(
+      //   dirPath,
+      //   `invoice_${invoice._id}.pdf`
+      // );
 
+      const filePath = path.join(dirPath, `invoice_${invoice._id}.pdf`);
       doc.pipe(fs.createWriteStream(filePath));
+
+
 
       /* ======================
          HEADER
