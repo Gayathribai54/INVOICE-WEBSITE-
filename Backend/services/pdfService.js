@@ -1,29 +1,4 @@
 
-// import PDFDocument from "pdfkit";
-// import fs from "fs";
-// import path from "path";
-
-// const generatePDF = (invoice) => {
-//   return new Promise((resolve) => {
-//     const doc = new PDFDocument();
-//     const filePath = `uploads/invoices/invoice_${invoice._id}.pdf`;
-
-//     doc.pipe(fs.createWriteStream(filePath));
-
-//     doc.text("INVOICE");
-//     doc.text(`Invoice Date: ${invoice.invoiceDate}`);
-//     doc.text(`Billed To: ${invoice.billedTo.name}`);
-//     doc.text(`Amount: ₹${invoice.amount}`);
-
-//     doc.end();
-//     resolve(filePath);
-//   });
-// };
-
-// export default generatePDF;
-
-
-
 
 
 import PDFDocument from "pdfkit";
@@ -35,10 +10,15 @@ const generatePDF = (invoice) => {
     try {
       const doc = new PDFDocument({ margin: 50 });
       // const dirPath = "uploads/invoices";
-      const __dirname = new URL('.', import.meta.url).pathname;
+      //const __dirname = new URL('.', import.meta.url).pathname;
 
-      const dirPath = path.join(__dirname, "..", "..", "uploads", "invoices");
+      //const dirPath = path.join(__dirname, "..", "..", "uploads", "invoices");
 
+      const dirPath = path.join(
+        process.cwd(),
+        "uploads",
+        "invoices"
+      );
 
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath, { recursive: true });
