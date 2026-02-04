@@ -139,7 +139,7 @@ const generatePDF = (invoice) => {
         ["Account Number", invoice.bankDetails.accountNumber],
         ["IFSC", invoice.bankDetails.ifsc],
         ["Bank Name", invoice.bankDetails.bankName],
-        ["PAN Number", invoice.bankDetails.pan],
+        ["PAN Number", invoice.bankDetails.panNumber],
       ];
 
       let bankY = doc.y;
