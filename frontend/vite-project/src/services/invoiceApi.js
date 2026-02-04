@@ -16,7 +16,7 @@ const API = axios.create({
  */
 export const createInvoice = async (invoiceData) => {
   try {
-    const response = await API.post("/invoices", invoiceData);
+    const response = await API.post("/api/invoices", invoiceData);
     return response.data;
   } catch (error) {
     console.error("Error creating invoice:", error);
